@@ -1,8 +1,17 @@
 <?php
 
+use Illuminate\Support\Facades\Config;
 use Rebing\Soccerama\SocceramaServiceProvider;
 
 class TestCase extends Illuminate\Foundation\Testing\TestCase {
+
+    public function setUp()
+    {
+        parent::setup();
+
+        // A random account's token
+        Config::set('soccerama.api_token', 'x01bjuXDuho4Lfu1QrJs9nVMQKN5KJDwlvG3lkhtD0Sbvnqn6SIZsXtMhw5V');
+    }
 
     /**
      * Boots the application.
