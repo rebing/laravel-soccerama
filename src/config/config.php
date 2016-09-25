@@ -2,6 +2,6 @@
 
 return [
 
-    'api_token' => 'API_TOKEN_HERE',
+    'api_token' => 'x01bjuXDuho4Lfu1QrJs9nVMQKN5KJDwlvG3lkhtD0Sbvnqn6SIZsXtMhw5V',
 
 ];
