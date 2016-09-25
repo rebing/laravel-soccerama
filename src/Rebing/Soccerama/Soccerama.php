@@ -2,75 +2,97 @@
 
 namespace Rebing\Soccerama;
 
-use GuzzleHttp\Client;
+use Rebing\Soccerama\Requests\Bookmaker;
+use Rebing\Soccerama\Requests\Commentary;
 use Rebing\Soccerama\Requests\Competition;
+use Rebing\Soccerama\Requests\Country;
+use Rebing\Soccerama\Requests\Event;
 use Rebing\Soccerama\Requests\LiveScore;
 use Rebing\Soccerama\Requests\Match;
+use Rebing\Soccerama\Requests\Odds;
+use Rebing\Soccerama\Requests\Player;
+use Rebing\Soccerama\Requests\Season;
+use Rebing\Soccerama\Requests\Standings;
+use Rebing\Soccerama\Requests\Statistics;
+use Rebing\Soccerama\Requests\Team;
+use Rebing\Soccerama\Requests\TopScorer;
+use Rebing\Soccerama\Requests\Video;
 
 class Soccerama {
 
-    use Competition, Match, LiveScore;
-
-    /* @var $client Client */
-    protected $client;
-
-    protected $apiToken;
-    protected $withoutData;
-    protected $include = [];
-
-    public function __construct()
+    public function bookmakers()
     {
-        $this->client = new Client([
-            'base_uri'  => 'https://api.soccerama.pro/v1.2/',
-        ]);
-
-        $this->apiToken = config('soccerama.api_token');
-        if(empty($this->apiToken))
-        {
-            throw new \InvalidArgumentException('No API token set');
-        }
-
-        $this->withoutData = empty(config('soccerama.without_data')) ? false : config('soccerama.without_data');
+        return new Bookmaker();
     }
 
-    protected function call($url, $hasData = false)
+    public function commentaries()
     {
-        $query = ['api_token' => $this->apiToken];
-        if(count($this->include))
-        {
-            $query['include'] = $this->include;
-        }
-
-        $response = $this->client->get($url, ['query' => $query]);
-
-        $body = json_decode($response->getBody()->getContents());
-
-        if($hasData && $this->withoutData)
-        {
-            return $body->data;
-        }
-
-        return $body;
+        return new Commentary();
     }
 
-    protected function callData($url)
+    public function competitions()
     {
-        return $this->call($url, true);
+        return new Competition();
     }
 
-    /**
-     * @param $include - string or array of relations to include with the query
-     */
-    public function setInclude($include)
+    public function countries()
     {
-        if(is_array($include))
-        {
-            $include = implode(',', $include);
-        }
+        return new Country();
+    }
 
-        $this->include = $include;
+    public function events()
+    {
+        return new Event();
+    }
 
-        return $this;
+    public function livescores()
+    {
+        return new LiveScore();
+    }
+
+    public function matches()
+    {
+        return new Match();
+    }
+
+    public function odds()
+    {
+        return new Odds();
+    }
+
+    public function players()
+    {
+        return new Player();
+    }
+
+    public function seasons()
+    {
+        return new Season();
+    }
+
+    public function statistics()
+    {
+        return new Statistics();
+    }
+
+    public function standings()
+    {
+        return new Standings();
+    }
+
+    public function teams()
+    {
+        return new Team();
+    }
+
+    public function topscorers()
+    {
+        return new TopScorer();
+    }
+
+    public function videos()
+    {
+        return new Video();
     }
 
 }

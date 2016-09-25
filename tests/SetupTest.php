@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Config;
-use Rebing\Soccerama\Soccerama;
+use Rebing\Soccerama\SocceramaClient;
 
 class SetupTest extends TestCase {
 
@@ -14,7 +14,7 @@ class SetupTest extends TestCase {
     {
         Config::set('soccerama.api_token', '');
 
-        $soccerama = new Soccerama();
+        $soccerama = new SocceramaClient();
     }
 
 }

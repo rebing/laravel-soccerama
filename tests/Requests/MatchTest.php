@@ -17,7 +17,7 @@ class MatchTest extends TestCase {
         $fromDate = Carbon::createFromDate(2016, 9, 1);
         $toDate = Carbon::createFromDate(2016, 9, 10);
 
-        $response = Soccerama::matchesByDate($fromDate, $toDate);
+        $response = Soccerama::matches()->byDate($fromDate, $toDate);
 
         $this->assertNotEmpty($response->data);
     }
@@ -30,7 +30,7 @@ class MatchTest extends TestCase {
         $fromDate = '2016-09-01';
         $toDate = '2016-09-10';
 
-        $response = Soccerama::matchesByDate($fromDate, $toDate);
+        $response = Soccerama::matches()->byDate($fromDate, $toDate);
 
         $this->assertNotEmpty($response->data);
     }
@@ -40,10 +40,9 @@ class MatchTest extends TestCase {
      */
     public function it_retrieves_a_match_by_id()
     {
-        $id = 689930;
-        $response = Soccerama::matchById($id);
+        $response = Soccerama::matches()->byId($this->matchId);
 
-        $this->assertEquals($id, $response->id);
+        $this->assertEquals($this->matchId, $response->id);
     }
 
     /**
@@ -51,11 +50,10 @@ class MatchTest extends TestCase {
      */
     public function it_retrieves_along_with_a_competition_string_include()
     {
-        $id = 689930;
         $include = 'competition';
-        $response = Soccerama::setInclude($include)->matchById($id);
+        $response = Soccerama::matches()->setInclude($include)->byId($this->matchId);
 
-        $this->assertEquals($id, $response->id);
+        $this->assertEquals($this->matchId, $response->id);
         $this->assertNotEmpty($response->competition);
     }
 

@@ -4,13 +4,14 @@ namespace Rebing\Soccerama\Requests;
 
 
 use Carbon\Carbon;
+use Rebing\Soccerama\SocceramaClient;
 
-trait Match {
+class Match extends SocceramaClient {
 
     /**
      * Accepts dates as Carbon or 'YYYY-mm-dd' strings
      */
-    public function matchesByDate($fromDate, $toDate)
+    public function byDate($fromDate, $toDate)
     {
         if($fromDate instanceof Carbon)
         {
@@ -24,7 +25,7 @@ trait Match {
         return $this->callData('matches/' . $fromDate . '/' . $toDate);
     }
 
-    public function matchById($matchId)
+    public function byId($matchId)
     {
         return $this->call('matches/' . $matchId);
     }

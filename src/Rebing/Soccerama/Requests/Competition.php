@@ -2,14 +2,16 @@
 
 namespace Rebing\Soccerama\Requests;
 
-trait Competition {
+use Rebing\Soccerama\SocceramaClient;
 
-    public function competitions()
+class Competition extends SocceramaClient {
+
+    public function all()
     {
         return $this->callData('competitions');
     }
 
-    public function competitionById($competitionId)
+    public function byId($competitionId)
     {
         return $this->call('competitions/' . $competitionId);
     }

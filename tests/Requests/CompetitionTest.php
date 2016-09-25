@@ -13,7 +13,7 @@ class CompetitionTest extends TestCase {
      */
     public function it_retrieves_competitions()
     {
-        $response = Soccerama::competitions();
+        $response = Soccerama::competitions()->all();
 
         $this->assertNotEmpty($response->data);
     }
@@ -24,7 +24,7 @@ class CompetitionTest extends TestCase {
     public function it_retrieves_competitions_without_data()
     {
         Config::set('soccerama.without_data', true);
-        $response = Soccerama::competitions();
+        $response = Soccerama::competitions()->all();
 
         $this->assertArrayHasKey(0, $response);
     }
@@ -34,10 +34,9 @@ class CompetitionTest extends TestCase {
      */
     public function it_retrieves_a_key_by_id()
     {
-        $id = 43;
-        $response = Soccerama::competitionById($id);
+        $response = Soccerama::competitions()->byId($this->competitionId);
 
-        $this->assertEquals($id, $response->id);
+        $this->assertEquals($this->competitionId, $response->id);
         $this->assertNotNull($response->name);
     }
 
