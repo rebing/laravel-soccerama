@@ -59,7 +59,7 @@ use Soccerama;
 
 ...
 
-$response = Soccerama::competitions();
+$response = Soccerama::competitions()->all();
 ```
 
 The above returns an object containing a `data` array.
@@ -68,7 +68,7 @@ If you want to directly retrieve the data within `data`, change your config file
 Get a match by its id:
 
 ```
-$response = Soccerama::matchById($id);
+$response = Soccerama::matches()->byId($id);
 ```
 
 If you need to include other relations (check the official docs for which relations can be included):
@@ -77,5 +77,5 @@ If you need to include other relations (check the official docs for which relati
 $include = 'competition,matches';
 // Or: $include = ['competition', 'matches'];
 
-$response = Soccerama::setInclude($include)->seasons();
+$response = Soccerama::seasons()->setInclude($include)->all();
 ```
