@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Config;
 use Rebing\Soccerama\Facades\Soccerama;
 
 /**
@@ -14,7 +15,18 @@ class CompetitionTest extends TestCase {
     {
         $response = Soccerama::competitions();
 
-        $this->assertNotEmpty($response);
+        $this->assertNotEmpty($response->data);
+    }
+
+    /**
+     * @test
+     */
+    public function it_retrieves_competitions_without_data()
+    {
+        Config::set('soccerama.without_data', true);
+        $response = Soccerama::competitions();
+
+        $this->assertArrayHasKey(0, $response);
     }
 
     /**

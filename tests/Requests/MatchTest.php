@@ -19,7 +19,7 @@ class MatchTest extends TestCase {
 
         $response = Soccerama::matchesByDate($fromDate, $toDate);
 
-        $this->assertNotEmpty($response);
+        $this->assertNotEmpty($response->data);
     }
 
     /**
@@ -32,7 +32,7 @@ class MatchTest extends TestCase {
 
         $response = Soccerama::matchesByDate($fromDate, $toDate);
 
-        $this->assertNotEmpty($response);
+        $this->assertNotEmpty($response->data);
     }
 
     /**

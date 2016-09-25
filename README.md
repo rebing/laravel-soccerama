@@ -47,3 +47,35 @@ $ php artisan vendor:publish --provider="Rebing\Soccerama\SocceramaServiceProvid
 ```
 config/graphql.php
 ```
+
+## Usage
+
+Refer to the official [docs](https://soccerama.pro/docs/1.2) as to which calls can be made and check the calls in traits under [Rebing\Soccerama\Requests](Rebing\Soccerama\Requests).
+
+For example, get all competitions (if using facade):
+
+```
+use Soccerama;
+
+...
+
+$response = Soccerama::competitions();
+```
+
+The above returns an object containing a `data` array.
+If you want to directly retrieve the data within `data`, change your config file: `'without_data' => true`
+
+Get a match by its id:
+
+```
+$response = Soccerama::matchById($id);
+```
+
+If you need to include other relations (check the official docs for which relations can be included):
+
+```
+$include = 'competition,matches';
+// Or: $include = ['competition', 'matches'];
+
+$response = Soccerama::setInclude($include)->seasons();
+```
