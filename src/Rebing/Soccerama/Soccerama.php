@@ -4,11 +4,12 @@ namespace Rebing\Soccerama;
 
 use GuzzleHttp\Client;
 use Rebing\Soccerama\Requests\Competition;
+use Rebing\Soccerama\Requests\LiveScore;
 use Rebing\Soccerama\Requests\Match;
 
 class Soccerama {
 
-    use Competition, Match;
+    use Competition, Match, LiveScore;
 
     /* @var $client Client */
     protected $client;
