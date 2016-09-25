@@ -6,12 +6,12 @@ trait Competition {
 
     public function competitions()
     {
-        return $this->get('competitions')->data;
+        return $this->callData('competitions');
     }
 
     public function competitionById($competitionId)
     {
-        return $this->get('competitions/' . $competitionId);
+        return $this->call('competitions/' . $competitionId);
     }
 
 }

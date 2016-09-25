@@ -21,12 +21,12 @@ trait Match {
             $toDate->format('Y-m-d');
         }
 
-        return $this->get('matches/' . $fromDate . '/' . $toDate)->data;
+        return $this->callData('matches/' . $fromDate . '/' . $toDate);
     }
 
     public function matchById($matchId)
     {
-        return $this->get('matches/' . $matchId);
+        return $this->call('matches/' . $matchId);
     }
 
 }

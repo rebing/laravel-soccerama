@@ -3,12 +3,15 @@
 use Carbon\Carbon;
 use Rebing\Soccerama\Facades\Soccerama;
 
+/**
+ * @group match
+ */
 class MatchTest extends TestCase {
 
     /**
      * @test
      */
-    public function it_retrieves_matches_by_date_range_by_carbon_input()
+    public function it_retrieves_matches_by_date_range_using_carbon_input()
     {
 
         $fromDate = Carbon::createFromDate(2016, 9, 1);
@@ -16,8 +19,20 @@ class MatchTest extends TestCase {
 
         $response = Soccerama::matchesByDate($fromDate, $toDate);
 
-        $this->assertNotNull($response);
-        $this->assertArrayHasKey(0, $response);
+        $this->assertNotEmpty($response);
+    }
+
+    /**
+     * @test
+     */
+    public function it_retrieves_matches_by_date_range_using_string_input()
+    {
+        $fromDate = '2016-09-01';
+        $toDate = '2016-09-10';
+
+        $response = Soccerama::matchesByDate($fromDate, $toDate);
+
+        $this->assertNotEmpty($response);
     }
 
     /**
@@ -25,9 +40,23 @@ class MatchTest extends TestCase {
      */
     public function it_retrieves_a_match_by_id()
     {
-        $response = Soccerama::matchById(689930);
+        $id = 689930;
+        $response = Soccerama::matchById($id);
 
-        $this->assertNotNull($response->id);
+        $this->assertEquals($id, $response->id);
+    }
+
+    /**
+     * @test
+     */
+    public function it_retrieves_along_with_a_competition_string_include()
+    {
+        $id = 689930;
+        $include = 'competition';
+        $response = Soccerama::setInclude($include)->matchById($id);
+
+        $this->assertEquals($id, $response->id);
+        $this->assertNotEmpty($response->competition);
     }
 
 }

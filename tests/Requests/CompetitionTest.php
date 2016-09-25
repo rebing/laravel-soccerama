@@ -2,6 +2,9 @@
 
 use Rebing\Soccerama\Facades\Soccerama;
 
+/**
+ * @group competition
+ */
 class CompetitionTest extends TestCase {
 
     /**
@@ -11,8 +14,7 @@ class CompetitionTest extends TestCase {
     {
         $response = Soccerama::competitions();
 
-        $this->assertNotNull($response);
-        $this->assertArrayHasKey(0, $response);
+        $this->assertNotEmpty($response);
     }
 
     /**
@@ -20,8 +22,10 @@ class CompetitionTest extends TestCase {
      */
     public function it_retrieves_a_key_by_id()
     {
-        $response = Soccerama::competitionById(43);
+        $id = 43;
+        $response = Soccerama::competitionById($id);
 
+        $this->assertEquals($id, $response->id);
         $this->assertNotNull($response->name);
     }
 
