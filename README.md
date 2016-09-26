@@ -1,7 +1,7 @@
 # Laravel Soccerama
 
 Laravel wrapper for [Soccerama](https://soccerama.pro/) (live) score API calls. 
-Documentation for the api can be found [here](https://soccerama.pro/docs/1.2)
+Documentation for the API can be found [here](https://soccerama.pro/docs/1.2)
 
 ## Installation
 

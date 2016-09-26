@@ -11,7 +11,7 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
     {
         parent::setup();
 
-        // A random account's token
+        // A random account's token, replace it with a real token for testing
         Config::set('soccerama.api_token', 'x01bjuXDuho4Lfu1QrJs9nVMQKN5KJDwlvG3lkhtD0Sbvnqn6SIZsXtMhw5V');
 
         $this->matchId = 689930;
