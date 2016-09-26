@@ -9,7 +9,7 @@ Documentation for the api can be found [here](https://soccerama.pro/docs/1.2)
 ```json
 {
   "require": {
-    "Rebing/laravel-soccerama": "1.0^"
+    "Rebing/laravel-soccerama": "^1.0"
   }
 }
 ```
