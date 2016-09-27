@@ -8,7 +8,6 @@ use Rebing\Soccerama\Facades\Soccerama;
 class SeasonTest extends TestCase {
 
     /**
-     * @group testing
      * @test
      */
     public function it_retrieves_all_seasons()
@@ -36,7 +35,6 @@ class SeasonTest extends TestCase {
         $response = Soccerama::seasons()->resultsById($this->seasonId);
 
         $this->assertEquals($this->seasonId, $response->id);
-        $this->assertNotEmpty($response->data);
     }
 
 }
