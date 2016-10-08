@@ -1,5 +1,8 @@
 # Laravel Soccerama
 
+[![Latest Stable Version](https://poser.pugx.org/rebing/laravel-soccerama/v/stable)](https://packagist.org/packages/rebing/laravel-soccerama)
+[![License](https://poser.pugx.org/rebing/laravel-soccerama/license)](https://packagist.org/packages/rebing/laravel-soccerama)
+
 Laravel wrapper for [Soccerama](https://soccerama.pro/) (live) score API calls. 
 Documentation for the API can be found [here](https://soccerama.pro/docs/1.2)
 
