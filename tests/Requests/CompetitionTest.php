@@ -32,7 +32,7 @@ class CompetitionTest extends TestCase {
     /**
      * @test
      */
-    public function it_retrieves_a_key_by_id()
+    public function it_retrieves_a_competition_by_id()
     {
         $response = Soccerama::competitions()->byId($this->competitionId);
 

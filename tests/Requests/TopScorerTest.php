@@ -7,7 +7,6 @@ use Rebing\Soccerama\Facades\Soccerama;
 class TopScorerTest extends TestCase {
 
     /**
-     * @group testing
      * @test
      */
     public function it_retrieves_all_top_scorer_by_season()

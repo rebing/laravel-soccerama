@@ -12,13 +12,14 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
         parent::setup();
 
         // A random account's token, replace it with a real token for testing
-        Config::set('soccerama.api_token', 'x01bjuXDuho4Lfu1QrJs9nVMQKN5KJDwlvG3lkhtD0Sbvnqn6SIZsXtMhw5V');
+        Config::set('soccerama.api_token', 'YOUR_TEST_KEY_HERE');
 
-        $this->matchId = 689930;
-        $this->competitionId = 43;
-        $this->countryId = 13;
-        $this->teamId = 146;
-        $this->seasonId = 355;
+        // Usable with an English Premier League plan
+        $this->matchId = 683059;
+        $this->competitionId = 29;
+        $this->countryId = 9;
+        $this->teamId = 119;
+        $this->seasonId = 651;
         $this->playerId = 32042;
         $this->bookmakerId = 1;
     }

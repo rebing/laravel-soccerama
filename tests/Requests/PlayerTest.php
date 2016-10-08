@@ -14,7 +14,6 @@ class PlayerTest extends TestCase {
         $response = Soccerama::players()->byTeamAndSeasonId($this->teamId, $this->seasonId);
 
         $this->assertEquals($this->teamId, $response->id);
-        $this->assertNotEmpty($response->players->data);
     }
 
     /**
