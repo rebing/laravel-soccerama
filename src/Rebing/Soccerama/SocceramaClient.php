@@ -3,6 +3,7 @@
 namespace Rebing\Soccerama;
 
 use GuzzleHttp\Client;
+use Rebing\Soccerama\Exceptions\ApiRequestException;
 
 class SocceramaClient {
 
@@ -41,6 +42,20 @@ class SocceramaClient {
         $response = $this->client->get($url, ['query' => $query]);
 
         $body = json_decode($response->getBody()->getContents());
+
+        if(property_exists($body, 'error')) 
+        {
+            if(is_object($body->error)) 
+            {
+                throw new ApiRequestException($body->error->message, $body->error->code);
+            } 
+            else 
+            {
+                throw new ApiRequestException($body->error, 500);
+            }
+
+            return $response;
+        }
 
         if($hasData && $this->withoutData)
         {
