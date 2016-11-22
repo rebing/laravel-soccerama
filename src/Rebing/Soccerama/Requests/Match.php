@@ -15,11 +15,11 @@ class Match extends SocceramaClient {
     {
         if($fromDate instanceof Carbon)
         {
-            $fromDate->format('Y-m-d');
+            $fromDate = $fromDate->format('Y-m-d');
         }
         if($toDate instanceof Carbon)
         {
-            $toDate->format('Y-m-d');
+            $toDate = $toDate->format('Y-m-d');
         }
 
         return $this->callData('matches/' . $fromDate . '/' . $toDate);
