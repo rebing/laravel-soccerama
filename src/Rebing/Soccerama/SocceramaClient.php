@@ -43,7 +43,7 @@ class SocceramaClient {
 
         $body = json_decode($response->getBody()->getContents());
 
-        if($body->error) 
+        if(property_exists($body, 'error')) 
         {
             if(is_object($body->error)) 
             {
