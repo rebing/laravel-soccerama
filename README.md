@@ -31,7 +31,7 @@ $ composer update
 
 **3-** Add the service provider to your `app/config/app.php` file
 ```php
-'Rebing\Soccerama\SocceramaServiceprovider',
+'Rebing\Soccerama\SocceramaServiceProvider',
 ```
 
 **4-** Add the facade to your `app/config/app.php` file
@@ -48,7 +48,7 @@ $ php artisan vendor:publish --provider="Rebing\Soccerama\SocceramaServiceProvid
 **6-** Review the configuration file and add your token (preferably through env: `'api_token' => env('API_TOKEN')` )
 
 ```
-config/graphql.php
+config/soccerama.php
 ```
 
 ## Usage
