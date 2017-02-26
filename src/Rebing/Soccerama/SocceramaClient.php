@@ -89,6 +89,9 @@ class SocceramaClient {
         return $this;
     }
 
+    /**
+     * @param $perPage - int of per_page limit data in request
+     */
     public function setPerPage($perPage)
     {
         $this->perPage = $perPage;
