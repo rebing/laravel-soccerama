@@ -13,6 +13,7 @@ class SocceramaClient {
     protected $apiToken;
     protected $withoutData;
     protected $include = [];
+    protected $perPage = 50;
 
     public function __construct()
     {
@@ -33,7 +34,10 @@ class SocceramaClient {
 
     protected function call($url, $hasData = false)
     {
-        $query = ['api_token' => $this->apiToken];
+        $query = [
+            'api_token' => $this->apiToken,
+            'per_page' => $this->perPage
+        ];
         if(count($this->include))
         {
             $query['include'] = $this->include;
@@ -43,13 +47,13 @@ class SocceramaClient {
 
         $body = json_decode($response->getBody()->getContents());
 
-        if(property_exists($body, 'error')) 
+        if(property_exists($body, 'error'))
         {
-            if(is_object($body->error)) 
+            if(is_object($body->error))
             {
                 throw new ApiRequestException($body->error->message, $body->error->code);
-            } 
-            else 
+            }
+            else
             {
                 throw new ApiRequestException($body->error, 500);
             }
@@ -81,6 +85,13 @@ class SocceramaClient {
         }
 
         $this->include = $include;
+
+        return $this;
+    }
+
+    public function setPerPage($perPage)
+    {
+        $this->perPage = $perPage;
 
         return $this;
     }
