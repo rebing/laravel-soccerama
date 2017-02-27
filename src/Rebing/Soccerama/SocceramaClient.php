@@ -14,7 +14,8 @@ class SocceramaClient {
     protected $withoutData;
     protected $include = [];
     protected $perPage = 50;
-
+    protected $page = 1;
+    
     public function __construct()
     {
         $options = [
@@ -36,7 +37,8 @@ class SocceramaClient {
     {
         $query = [
             'api_token' => $this->apiToken,
-            'per_page' => $this->perPage
+            'per_page' => $this->perPage,
+            'page' => $this->page
         ];
         if(count($this->include))
         {
@@ -99,4 +101,13 @@ class SocceramaClient {
         return $this;
     }
 
+    /**
+     * @param $page - int of requested page
+     */
+    public function setPage($page)
+    {
+        $this->page = $page;
+
+        return $this;
+    }
 }
