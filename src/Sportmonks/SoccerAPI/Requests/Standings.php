@@ -1,10 +1,10 @@
 <?php
 
-namespace Rebing\Soccerama\Requests;
+namespace Sportmonks\SoccerAPI\Requests;
 
-use Rebing\Soccerama\SocceramaClient;
+use Sportmonks\SoccerAPI\SoccerAPIClient;
 
-class Standings extends SocceramaClient {
+class Standings extends SoccerAPIClient {
 
     public function bySeasonId($seasonId)
     {

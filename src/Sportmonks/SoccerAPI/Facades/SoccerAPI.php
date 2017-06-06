@@ -1,10 +1,10 @@
 <?php
 
-namespace Rebing\Soccerama\Facades;
+namespace Sportmonks\SoccerAPI\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class Soccerama extends Facade {
+class SoccerAPI extends Facade {
 
     /**
      * Get the registered name of the component.
@@ -13,7 +13,7 @@ class Soccerama extends Facade {
      */
     protected static function getFacadeAccessor()
     {
-        return 'soccerama';
+        return 'soccerapi';
     }
 
 }

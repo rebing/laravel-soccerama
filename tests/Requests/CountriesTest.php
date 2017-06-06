@@ -1,6 +1,6 @@
 <?php
 
-use Rebing\Soccerama\Facades\Soccerama;
+use Sportmonks\SoccerAPI\Facades\SoccerAPI;
 
 /**
  * @group countries
@@ -12,8 +12,7 @@ class CountriesTest extends TestCase {
      */
     public function it_retrieves_all_countries()
     {
-        $response = Soccerama::countries()->all();
-
+        $response = SoccerAPI::countries()->all();
         $this->assertNotEmpty($response);
     }
 
@@ -22,9 +21,8 @@ class CountriesTest extends TestCase {
      */
     public function it_retrieves_a_country_by_id()
     {
-        $response = Soccerama::countries()->byId($this->countryId);
-
-        $this->assertEquals($this->countryId, $response->id);
+        $response = SoccerAPI::countries()->byId($this->countryId);
+        $this->assertEquals($this->countryId, $response->data->id);
     }
 
 }

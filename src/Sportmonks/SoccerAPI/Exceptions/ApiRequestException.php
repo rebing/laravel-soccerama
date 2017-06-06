@@ -1,6 +1,6 @@
 <?php
 
-namespace Rebing\Soccerama\Exceptions;
+namespace Sportmonks\SoccerAPI\Exceptions;
 
 use Exception;
 

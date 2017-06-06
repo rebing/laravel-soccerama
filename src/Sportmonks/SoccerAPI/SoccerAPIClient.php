@@ -1,11 +1,11 @@
 <?php
 
-namespace Rebing\Soccerama;
+namespace Sportmonks\SoccerAPI;
 
 use GuzzleHttp\Client;
-use Rebing\Soccerama\Exceptions\ApiRequestException;
+use Sportmonks\SoccerAPI\Exceptions\ApiRequestException;
 
-class SocceramaClient {
+class SoccerAPIClient {
 
     /* @var $client Client */
     protected $client;
@@ -19,18 +19,18 @@ class SocceramaClient {
     public function __construct()
     {
         $options = [
-            'base_uri'  => 'https://api.soccerama.pro/v1.2/',
+            'base_uri'  => 'https://soccer.sportmonks.com/api/v2.0/',
             'verify'    => app('env') === 'testing' ? false : true,
         ];
         $this->client = new Client($options);
 
-        $this->apiToken = config('soccerama.api_token');
+        $this->apiToken = config('soccerapi.api_token');
         if(empty($this->apiToken))
         {
             throw new \InvalidArgumentException('No API token set');
         }
 
-        $this->withoutData = empty(config('soccerama.without_data')) ? false : config('soccerama.without_data');
+        $this->withoutData = empty(config('soccerapi.without_data')) ? false : config('soccerapi.without_data');
     }
 
     protected function call($url, $hasData = false)

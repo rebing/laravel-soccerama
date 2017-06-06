@@ -1,11 +1,11 @@
 <?php
 
-namespace Rebing\Soccerama\Requests;
+namespace Sportmonks\SoccerAPI\Requests;
 
 
-use Rebing\Soccerama\SocceramaClient;
+use Sportmonks\SoccerAPI\SoccerAPIClient;
 
-class Country extends SocceramaClient {
+class Country extends SoccerAPIClient {
 
     public function all()
     {
