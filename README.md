@@ -9,7 +9,7 @@ Documentation for the API can be found [here](https://www.sportmonks.com/sports/
 ```json
 {
   "require": {
-    "kirill-latish/laravel-sportmonks-soccer": "^1.0"
+    "kirill-latish/laravel-sportmonks-soccer": "^2.0"
   }
 }
 ```
