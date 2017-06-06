@@ -28,12 +28,12 @@ $ composer update
 
 **3-** Add the service provider to your `app/config/app.php` file
 ```php
-'Sportmonks\SoccerAPI\SoccerAPIServiceProvider',
+Sportmonks\SoccerAPI\SoccerAPIServiceProvider::class,
 ```
 
 **4-** Add the facade to your `app/config/app.php` file
 ```php
-'SoccerAPI' => 'Sportmonks\SoccerAPI\Facades\SoccerAPI',
+'SoccerAPI' => Sportmonks\SoccerAPI\Facades\SoccerAPI::class,
 ```
 
 **5-** Publish the configuration file
