@@ -6,7 +6,7 @@ use Sportmonks\SoccerAPI\SoccerAPIServiceProvider;
 class TestCase extends Illuminate\Foundation\Testing\TestCase {
 
     protected $matchId, $tvStationMatchId, $leagueId, $continentId, $countryId, $fixtureId, $teamId, $firstTeamId, $secondTeamId,
-        $seasonId, $playerId, $bookmakerId, $venueId, $roundId;
+        $seasonId, $playerId, $bookmakerId, $venueId, $roundId, $team1Id, $team2Id;
 
     public function setUp()
     {
@@ -24,6 +24,8 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
         $this->roundId = 219;
         $this->countryId = 462;
         $this->teamId = 19;
+        $this->team1Id = 6;
+        $this->team2Id = 27;
         $this->firstTeamId = 6;
         $this->secondTeamId = 19;
         $this->seasonId = 718;

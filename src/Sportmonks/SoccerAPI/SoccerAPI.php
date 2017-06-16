@@ -5,6 +5,7 @@ namespace Sportmonks\SoccerAPI;
 use Sportmonks\SoccerAPI\Requests\Bookmaker;
 use Sportmonks\SoccerAPI\Requests\Commentary;
 use Sportmonks\SoccerAPI\Requests\Fixture;
+use Sportmonks\SoccerAPI\Requests\Head2Head;
 use Sportmonks\SoccerAPI\Requests\League;
 use Sportmonks\SoccerAPI\Requests\Continent;
 use Sportmonks\SoccerAPI\Requests\Country;
@@ -35,6 +36,11 @@ class SoccerAPI {
     public function leagues()
     {
         return new League();
+    }
+
+    public function head2head()
+    {
+        return new Head2Head();
     }
 
     public function continents()
