@@ -20,6 +20,7 @@ use Sportmonks\SoccerAPI\Requests\TopScorer;
 use Sportmonks\SoccerAPI\Requests\TVStation;
 use Sportmonks\SoccerAPI\Requests\Venue;
 use Sportmonks\SoccerAPI\Requests\Video;
+use Sportmonks\SoccerAPI\Requests\Squad;
 
 class SoccerAPI {
 
@@ -111,6 +112,11 @@ class SoccerAPI {
     public function videos()
     {
         return new Video();
+    }
+
+    public function squads()
+    {
+        return new Squad();
     }
 
 }
