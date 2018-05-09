@@ -81,7 +81,7 @@ class SoccerAPIClient {
      */
     public function setInclude($include)
     {
-        if(is_array($include))
+        if(is_array($include) && !empty($include))
         {
             $include = implode(',', $include);
         }
