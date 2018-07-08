@@ -48,6 +48,12 @@ $ php artisan vendor:publish --provider="Sportmonks\SoccerAPI\SoccerAPIServicePr
 config/soccerapi.php
 ```
 
+**7-** Review the configuration file and add your timezone (preferably through config file: `'timezone' => config('app.timezone')` )
+
+```
+config/soccerapi.php
+```
+
 ## Usage
 
 Refer to the official [docs](https://www.sportmonks.com/sports/soccer) as to which calls can be made and check the calls in traits under [Sportmonks\SoccerAPI\Requests](Sportmonks\SoccerAPI\Requests).

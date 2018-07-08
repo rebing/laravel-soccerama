@@ -15,6 +15,7 @@ class SoccerAPIClient {
     protected $include = [];
     protected $perPage = 50;
     protected $page = 1;
+    protected $timezone;
     
     public function __construct()
     {
@@ -29,6 +30,7 @@ class SoccerAPIClient {
         {
             throw new \InvalidArgumentException('No API token set');
         }
+        $this->timezone = empty(config('soccerapi.timezone')) ? config('app.timezone') : config('soccerapi.timezone');
 
         $this->withoutData = empty(config('soccerapi.without_data')) ? false : config('soccerapi.without_data');
     }
@@ -43,6 +45,10 @@ class SoccerAPIClient {
         if(!empty($this->include))
         {
             $query['include'] = $this->include;
+        }
+        if ($this->timezone)
+        {
+            $query['tz'] = $this->timezone;
         }
 
         $response = $this->client->get($url, ['query' => $query]);
