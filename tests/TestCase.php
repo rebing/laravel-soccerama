@@ -1,26 +1,35 @@
 <?php
 
 use Illuminate\Support\Facades\Config;
-use Rebing\Soccerama\SocceramaServiceProvider;
+use Sportmonks\SoccerAPI\SoccerAPIServiceProvider;
 
 class TestCase extends Illuminate\Foundation\Testing\TestCase {
 
-    protected $matchId, $competitionId, $countryId, $teamId, $seasonId, $playerId, $bookmakerId;
+    protected $matchId, $tvStationMatchId, $leagueId, $continentId, $countryId, $fixtureId, $teamId, $firstTeamId, $secondTeamId,
+        $seasonId, $playerId, $bookmakerId, $venueId, $roundId, $team1Id, $team2Id;
 
     public function setUp()
     {
         parent::setup();
 
         // A random account's token, replace it with a real token for testing
-        Config::set('soccerama.api_token', 'YOUR_TEST_KEY_HERE');
+        Config::set('soccerapi.api_token', 'YOUR_TEST_KEY_HERE');
 
         // Usable with an English Premier League plan
-        $this->matchId = 683059;
-        $this->competitionId = 29;
-        $this->countryId = 9;
-        $this->teamId = 119;
-        $this->seasonId = 651;
-        $this->playerId = 32042;
+        $this->matchId = 1135338;
+        $this->tvStationMatchId = 7611;
+        $this->leagueId = 8;
+        $this->continentId = 1;
+        $this->venueId = 206;
+        $this->roundId = 219;
+        $this->countryId = 462;
+        $this->teamId = 19;
+        $this->team1Id = 6;
+        $this->team2Id = 27;
+        $this->firstTeamId = 6;
+        $this->secondTeamId = 19;
+        $this->seasonId = 718;
+        $this->playerId = 579;
         $this->bookmakerId = 1;
     }
 
@@ -33,7 +42,7 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
     {
         $app = require __DIR__.'/../vendor/laravel/laravel/bootstrap/app.php';
 
-        $app->register(SocceramaServiceProvider::class);
+        $app->register(SoccerAPIServiceProvider::class);
 
         $app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
 

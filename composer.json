@@ -1,6 +1,6 @@
 {
-    "name": "rebing/laravel-soccerama",
-    "description": "Laravel wrapper for Soccerama score API calls",
+    "name": "kirill-latish/laravel-sportmonks-soccer",
+    "description": "Laravel wrapper for Soccerama score API calls v2.0. Fork of rebing/laravel-soccerama",
     "keywords": ["framework", "laravel", "soccer", "live-scores"],
     "authors": [
         {
@@ -11,6 +11,11 @@
         {
             "name": "Mikk Mihkel Nurges",
             "email": "mikk.nurges@rebing.ee",
+            "role": "Developer"
+        },
+        {
+            "name": "Kirill Latish",
+            "email": "kirill@livezone.io",
             "role": "Developer"
         }
     ],
@@ -23,11 +28,11 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^5.5",
-        "laravel/laravel": "dev-develop"
+        "laravel/laravel": "5.4"
     },
     "autoload": {
         "psr-0": {
-            "Rebing\\Soccerama\\": "src/"
+            "Sportmonks\\SoccerAPI\\": "src/"
         }
     },
     "autoload-dev": {
