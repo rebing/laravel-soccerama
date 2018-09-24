@@ -1,5 +1,5 @@
 <?php
-use Rebing\Soccerama\Facades\Soccerama;
+use Sportmonks\SoccerAPI\Facades\SoccerAPI;
 
 /**
  * @group top-scorer
@@ -11,7 +11,7 @@ class TopScorerTest extends TestCase {
      */
     public function it_retrieves_all_top_scorer_by_season()
     {
-        $response = Soccerama::topscorers()->bySeasonId($this->seasonId);
+        $response = SoccerAPI::topscorers()->bySeasonId($this->seasonId);
 
         $this->assertNotEmpty($response->data);
     }

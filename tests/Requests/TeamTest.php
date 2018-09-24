@@ -1,5 +1,5 @@
 <?php
-use Rebing\Soccerama\Facades\Soccerama;
+use Sportmonks\SoccerAPI\Facades\SoccerAPI;
 
 /**
  * @group team
@@ -11,7 +11,7 @@ class TeamTest extends TestCase {
      */
     public function it_gets_all_teams_by_season_id()
     {
-        $response = Soccerama::teams()->allBySeasonId($this->seasonId);
+        $response = SoccerAPI::teams()->allBySeasonId($this->seasonId);
 
         $this->assertNotEmpty($response);
     }
@@ -21,17 +21,8 @@ class TeamTest extends TestCase {
      */
     public function it_gets_a_team_by_id()
     {
-        $response = Soccerama::teams()->byId($this->teamId);
+        $response = SoccerAPI::teams()->byId($this->teamId);
 
-        $this->assertEquals($this->teamId, $response->id);
+        $this->assertEquals($this->teamId, $response->data->id);
     }
-
-    /**
-     * @test
-     */
-    public function it_gets_a_team_by_a_specific_season()
-    {
-        $response = Soccerama::teams()->bySeasonId($this->teamId, $this->seasonId);
-    }
-
 }
