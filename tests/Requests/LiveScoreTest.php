@@ -1,7 +1,6 @@
 <?php
 
-use Carbon\Carbon;
-use Rebing\Soccerama\Facades\Soccerama;
+use Sportmonks\SoccerAPI\Facades\SoccerAPI;
 
 /**
  * @group live-score
@@ -11,10 +10,9 @@ class LiveScoreTest extends TestCase {
     /**
      * @test
      */
-    public function it_retrieves_scores_for_a_specific_date_using_carbon()
+    public function it_retrieves_livescores_for_today()
     {
-        $date = Carbon::createFromDate(2016, 9, 10);
-        $response = Soccerama::livescores()->byDate($date);
+        $response = SoccerAPI::livescores()->today();
 
         $this->assertNotEmpty($response->data);
     }
@@ -22,22 +20,11 @@ class LiveScoreTest extends TestCase {
     /**
      * @test
      */
-    public function it_retrieves_scores_for_a_specific_date_using_string()
+    public function it_retrieves_livescores_for_now()
     {
-        $date = '2016-09-10';
-        $response = Soccerama::livescores()->byDate($date);
+        $response = SoccerAPI::livescores()->now();
 
         $this->assertNotEmpty($response->data);
-    }
-
-    /**
-     * @test
-     */
-    public function it_retrieves_scores_by_a_match_id()
-    {
-        $response = Soccerama::livescores()->byMatchId($this->matchId);
-
-        $this->assertEquals($this->matchId, $response->id);
     }
 
 }

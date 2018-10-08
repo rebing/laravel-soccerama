@@ -1,5 +1,5 @@
 <?php
-use Rebing\Soccerama\Facades\Soccerama;
+use Sportmonks\SoccerAPI\Facades\SoccerAPI;
 
 /**
  * @group odds
@@ -11,7 +11,7 @@ class OddsTest extends TestCase {
      */
     public function it_retrieves_odds_by_match_id()
     {
-        $response = Soccerama::odds()->byMatchId($this->matchId);
+        $response = SoccerAPI::odds()->byMatchId($this->matchId);
 
         $this->assertNotEmpty($response->data);
     }
@@ -21,7 +21,7 @@ class OddsTest extends TestCase {
      */
     public function it_retrieves_odds_by_match_and_bookmaker_id()
     {
-        $response = Soccerama::odds()->byMatchAndBookmakerId($this->matchId, $this->bookmakerId);
+        $response = SoccerAPI::odds()->byMatchAndBookmakerId($this->matchId, $this->bookmakerId);
 
         $this->assertNotEmpty($response->data);
     }

@@ -1,5 +1,5 @@
 <?php
-use Rebing\Soccerama\Facades\Soccerama;
+use Sportmonks\SoccerAPI\Facades\SoccerAPI;
 
 /**
  * @group standings
@@ -11,9 +11,9 @@ class StandingsTest extends TestCase {
      */
     public function it_retrieves_standings_by_season()
     {
-        $response = Soccerama::standings()->bySeasonId($this->seasonId);
+        $response = SoccerAPI::standings()->bySeasonId($this->seasonId);
 
-        $this->assertNotEmpty($response->data[0]->standings->data);
+        $this->assertNotEmpty($response->data);
     }
 
 }
