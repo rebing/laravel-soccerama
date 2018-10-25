@@ -8,4 +8,5 @@ return [
     // stripped of it. Set to true to get body within 'data'
     'without_data' => false,
 
+    'timezone' => config('app.timezone')
 ];
