@@ -3,6 +3,7 @@
 namespace Sportmonks\SoccerAPI;
 
 use Sportmonks\SoccerAPI\Requests\Bookmaker;
+use Sportmonks\SoccerAPI\Requests\Markets;
 use Sportmonks\SoccerAPI\Requests\Commentary;
 use Sportmonks\SoccerAPI\Requests\Fixture;
 use Sportmonks\SoccerAPI\Requests\Head2Head;
@@ -117,6 +118,11 @@ class SoccerAPI {
     public function squads()
     {
         return new Squad();
+    }
+
+    public function markets()
+    {
+        return new Markets();
     }
 
 }
