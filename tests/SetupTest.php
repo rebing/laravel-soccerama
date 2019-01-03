@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Config;
-use Rebing\Soccerama\SocceramaClient;
+use Sportmonks\SoccerAPI\SoccerAPIClient;
 
 class SetupTest extends TestCase {
 
@@ -12,9 +12,9 @@ class SetupTest extends TestCase {
      */
     public function it_throws_an_exception_if_no_api_token_set()
     {
-        Config::set('soccerama.api_token', '');
+        Config::set('soccerapi.api_token', '');
 
-        $soccerama = new SocceramaClient();
+        $soccerAPI = new SoccerAPIClient();
     }
 
 }
