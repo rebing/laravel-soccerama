@@ -1,8 +1,7 @@
 {
-    "name": "fpicosm/laravel-sportmonks-soccer",
+    "name": "kirill-latish/laravel-sportmonks-soccer",
     "description": "Laravel wrapper for Soccerama score API calls v2.0. Fork of rebing/laravel-soccerama",
     "keywords": ["framework", "laravel", "soccer", "live-scores"],
-    "version": "3.0.0",
     "authors": [
         {
             "name": "Rebing OÜ",
