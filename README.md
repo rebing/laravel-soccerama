@@ -9,7 +9,7 @@ Documentation for the API can be found [here](https://www.sportmonks.com/sports/
 ```json
 {
   "require": {
-    " alberto-setim/laravel-sportmonks-soccer": "1.0"
+    "alberto-setim/laravel-sportmonks-soccer": "1.0"
   }
 }
 ```
